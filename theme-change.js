@@ -12,11 +12,6 @@ function setTheme(theme) {
     const commentLength = document.getElementById('comment-length');
     const commentCount = document.getElementById('comment-count')
 
-    const toggle = document.getElementById("toggleLabel");
-    if (toggle) {
-        toggle.classList.remove("js-enabled");
-    }
-
     if (theme === 'dark') {
         root.style.setProperty('background', 'var(--bg-color-dark)');
         root.style.setProperty('color', 'var(--text-color-dark)');
@@ -85,6 +80,10 @@ function toggleTheme() {
 }
 
 function setSavedTheme() {
+    const toggle = document.getElementById("toggleLabel");
+    if (toggle) {
+        toggle.classList.remove("js-enabled");
+    }
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         setTheme(savedTheme);
